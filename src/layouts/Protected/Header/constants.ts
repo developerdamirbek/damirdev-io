@@ -1,20 +1,23 @@
+import HomeIcon from '/public/home.svg'
+import MyScoreIcon from '/public/indicators.svg'
+import RatingIcon from '/public/subtract.svg'
 import mainDictionary from '@/dictionary'
 import { Language } from './types'
 
 export const MENU_LINKS = [
   {
     title: mainDictionary.homePage,
-    icon: '/home.svg',
+    icon: HomeIcon,
     link: '/',
   },
   {
     title: mainDictionary.rating,
-    icon: '/subtract.svg',
+    icon: RatingIcon,
     link: '/rating',
   },
   {
     title: mainDictionary.myScore,
-    icon: '/indicators.svg',
+    icon: MyScoreIcon,
     link: '/my-score',
   },
 ]

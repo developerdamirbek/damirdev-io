@@ -12,7 +12,7 @@ const cx = classNames.bind(styles)
 export const Header = () => (
   <Box component="header" className={cx('header')}>
     <Link href="/">
-      <Image src="/edfix-logo.svg" alt="logo" height={60} width={139} priority />
+      <Image src="/damirdev.svg" alt="logo" height={60} width={139} priority />
     </Link>
 
     <Menus />

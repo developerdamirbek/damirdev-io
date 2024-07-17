@@ -13,13 +13,9 @@ export const Menus = () => {
 
   return (
     <Box component="nav" className={cx('menus')}>
-      {MENU_LINKS.map((item) => (
-        <Link
-          className={cx('menus__item', { 'menus__item--active': pathName === item.link })}
-          key={item.link}
-          href={item.link}
-        >
-          {item.title}
+      {MENU_LINKS.map(({ title, link, icon: Icon }) => (
+        <Link className={cx('menus__item', { 'menus__item--active': pathName === link })} key={link} href={link}>
+          <Icon /> {title}
         </Link>
       ))}
     </Box>
