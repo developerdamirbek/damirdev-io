@@ -1,5 +1,5 @@
 export const layoutDictionary = {
-  homePage: 'Asosiy sahita',
+  homePage: 'Asosiy sahifa',
   rating: 'Reyting',
   myScore: 'Ko‘rsatgichlarim',
   uz: 'UZ',
