@@ -1,0 +1,19 @@
+.empty-widget {
+  background-color: #8c81f21a;
+  border-radius: 15px;
+  padding: 70px 0;
+  margin: 20px 0;
+
+  &__container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    &-button {
+      justify-self: center;
+      max-width: 200px;
+      width: 100%;
+    }
+  }
+}

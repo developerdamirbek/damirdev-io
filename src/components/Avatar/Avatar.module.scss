@@ -1,0 +1,16 @@
+.avatar {
+  border-radius: 100%;
+  display: inline-grid;
+  padding: 3px;
+  position: relative;
+
+  &--has-border {
+    box-shadow: 0 0 0 2px var(--yellow);
+  }
+
+  &__actions {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+  }
+}

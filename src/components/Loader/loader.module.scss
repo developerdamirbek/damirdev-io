@@ -1,0 +1,23 @@
+@import url('@/styles/colors');
+
+.loader {
+  height: 48px;
+  width: 48px;
+  border: 5px solid $brand;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

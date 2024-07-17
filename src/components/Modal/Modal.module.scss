@@ -1,0 +1,20 @@
+.modal {
+  &__content {
+    background-color: var(--public-bg);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    left: 50%;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(21.875rem, 19.016vw + 9.681rem, 32.5rem);
+
+    &-header {
+      align-items: start;
+      display: flex;
+    }
+  }
+}

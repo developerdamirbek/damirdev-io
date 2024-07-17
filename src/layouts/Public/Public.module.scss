@@ -1,0 +1,16 @@
+.section {
+  background-color: var(--brand);
+  background-image: url('/public_bg.png');
+  background-origin: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  height: 100%;
+  place-items: center;
+  width: 100%;
+
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+}

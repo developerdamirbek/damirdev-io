@@ -1,0 +1,23 @@
+$gap: 30px;
+
+.form {
+  display: grid;
+  gap: $gap;
+  align-content: center;
+
+  &__submit {
+    display: grid;
+
+    &--has-gap {
+      gap: $gap;
+    }
+  }
+
+  &__forgot {
+    align-items: center;
+    display: flex;
+    font-size: 12px;
+    justify-content: center;
+    gap: 6px;
+  }
+}

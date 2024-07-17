@@ -1,0 +1,1 @@
+export { ViewAvatar } from './ViewAvatar'

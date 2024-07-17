@@ -1,0 +1,1 @@
+export { LessonAssignment } from './LessonAssignment'

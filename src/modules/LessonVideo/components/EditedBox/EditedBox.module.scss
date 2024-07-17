@@ -1,0 +1,31 @@
+.note-box {
+  background-color: var(--brand-lighter);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__icon-block {
+    border-right: 1px solid var(--separator);
+    padding-right: 10px;
+  }
+
+  &__icon {
+    height: 48px;
+    width: 48px;
+    background-color: var(--brand-secondary-hover);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand);
+    padding-right: 10px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

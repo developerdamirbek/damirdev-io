@@ -1,0 +1,34 @@
+.welcome {
+  background-image: url('../../assets/welcome-bg.png');
+  background-origin: border-box;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 40px 30px;
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    gap: 20px;
+
+    &-button {
+      width: clamp(305px, 1vw, 350px);
+    }
+  }
+
+  &__imageContainer {
+    &-image {
+      height: auto;
+      width: min(40vw, 285px);
+
+      @media (width <= 600px) {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.taskScore {
+  display: grid;
+  gap: clamp(0.625rem, 2.604vw - 0.625rem, 2.5rem);
+  &__top {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    display: grid;
+    gap: 20px;
+    padding: 30px;
+
+    &-cards {
+      display: grid;
+      gap: clamp(0.5rem, 0.784vw + 0.309rem, 1.25rem);
+      grid-template-columns: repeat(auto-fit, minmax(clamp(8.125rem, 11.111vw + 5.417rem, 18.75rem), 1fr));
+    }
+  }
+  &__botton {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    display: grid;
+    gap: 20px;
+    padding: 30px;
+  }
+}

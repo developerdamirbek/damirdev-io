@@ -1,0 +1,35 @@
+export const paperProps = {
+  elevation: 0,
+  sx: {
+    overflow: 'visible',
+    boxShadow: '0 10px 50px 3px rgba(0, 0, 0, 0.08)',
+    transform: 'matrix(-1, 0, 0, 1, 0, 0)',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    backdropFilter: 'blur(7px)',
+    mt: 1.5,
+    borderRadius: '12px',
+    padding: '16px',
+    width: '250px',
+    '& .MuiAvatar-root': {
+      width: 32,
+      height: 32,
+      ml: -0.5,
+      mr: 1,
+    },
+    '& .MuiList-root': {
+      padding: 0,
+    },
+    '&::before': {
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      right: 20,
+      width: 15,
+      height: 15,
+      backgroundColor: '#fff',
+      transform: 'translateY(-50%) rotate(45deg)',
+      zIndex: -1,
+    },
+  },
+}

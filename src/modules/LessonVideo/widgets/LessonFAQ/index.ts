@@ -1,0 +1,1 @@
+export { LessonFAQ } from './LessonFAQ'

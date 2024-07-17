@@ -1,0 +1,72 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  &__layout {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: clamp(1.25rem, 2.614vw + 0.613rem, 3.75rem);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__info {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(1.25rem, 2.614vw + 0.613rem, 3.75rem);
+  }
+
+  &__label {
+    color: var(--brand);
+  }
+
+  &__details_wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 20px;
+  }
+
+  &__card {
+    width: 100%;
+    padding: 30px;
+    box-shadow: none;
+    border: 1px solid var(--separator);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__detail_block {
+    padding: 20px;
+    border: 1px solid var(--separator);
+    border-radius: 20px;
+    display: flex;
+  }
+
+  &__detail-input {
+    border-radius: 8px;
+  }
+
+  &__password_text {
+    font-family: monospace;
+    user-select: none;
+    color: var(--text);
+  }
+
+  &__detail_text {
+    color: var(--text);
+  }
+
+  &__modal-btn {
+    color: var(--brand);
+    background-color: var(--brand-secondary);
+  }
+}

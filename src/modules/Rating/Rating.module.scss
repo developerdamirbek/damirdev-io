@@ -1,0 +1,21 @@
+.rating {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+  padding: clamp(0.625rem, 3.472vw - 1.042rem, 3.125rem);
+
+  &__table {
+    &-row {
+      background: var(--brand);
+    }
+
+    &-cell {
+      &--white {
+        color: var(--white);
+      }
+    }
+  }
+}

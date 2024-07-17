@@ -1,0 +1,25 @@
+.menus {
+  align-items: center;
+  display: flex;
+  height: 100%;
+
+  &__item {
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    color: var(--brand);
+    display: flex;
+    font-size: 18px;
+    font-weight: 600;
+    height: 100%;
+    line-height: 22px;
+    padding: 20px 40px;
+
+    &--active {
+      border-bottom-color: var(--brand);
+    }
+  }
+
+  &__img {
+    color: var(--brand);
+  }
+}

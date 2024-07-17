@@ -1,0 +1,17 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}

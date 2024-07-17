@@ -1,0 +1,12 @@
+.title {
+  margin-bottom: 8px;
+  text-align: center;
+
+  &__main-text {
+    margin: 0 0 8px;
+
+    @media screen and (width <= 600px) {
+      font-size: 28px !important;
+    }
+  }
+}

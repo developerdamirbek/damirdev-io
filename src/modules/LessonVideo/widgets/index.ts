@@ -1,0 +1,5 @@
+export { LessonComment } from './LessonComment'
+export { LessonFAQ } from './LessonFAQ'
+export { LessonNotes } from './LessonNotes'
+export { LessonSubject } from './LessonSubject'
+export { LessonThemes } from './LessonThemes'

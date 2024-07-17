@@ -1,0 +1,1 @@
+export { getMetaData } from './pages'

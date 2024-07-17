@@ -1,0 +1,25 @@
+.leader-student {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--yellow-light);
+  padding: 10px 20px;
+  border-radius: 15px;
+  gap: 20px;
+
+  &__content-left {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, calc(10px + (20 - 10) * ((100vw - 390px) / (1920 - 390))), 20px);
+  }
+
+  &__content-rigth--flexible {
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.313rem, 0.074rem + 0.98vw, 1.25rem);
+  }
+}

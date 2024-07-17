@@ -1,0 +1,42 @@
+.certificateCard {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: url("../../assets/card-bg.png");
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  height: clamp(15.625rem, 13.021vw + 9.375rem, 25rem);
+  padding: 30px;
+  position: relative;
+
+  &__container {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.938rem, 1.645vw + 0.526rem, 2.5rem);
+    height: 100%;
+    justify-content: end;
+
+    &-logo {
+      height: clamp(2.5rem, 1.736vw + 1.667rem, 3.75rem);
+      width: clamp(6.063rem, 3.646vw + 4.313rem, 8.688rem);
+    }
+  }
+
+  &__notComplete {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &.notComplete {
+      align-items: center;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}

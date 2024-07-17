@@ -1,0 +1,29 @@
+$gap: 20px;
+
+.form {
+  align-content: center;
+  display: grid;
+  gap: $gap;
+
+  &__submit {
+    display: grid;
+
+    &--has-gap {
+      gap: $gap;
+    }
+  }
+
+  &__forgot {
+    align-items: center;
+    display: grid;
+    font-size: 12px;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+  }
+
+  &__forgot-password {
+    @media only screen and (width <= 600px) {
+      text-align: center;
+    }
+  }
+}

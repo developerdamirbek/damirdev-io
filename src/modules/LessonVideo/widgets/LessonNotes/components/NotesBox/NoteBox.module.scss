@@ -1,0 +1,32 @@
+.note-box {
+  border-radius: 15px;
+  border: 1px solid var(--separator);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__modal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,17 @@
+.notifications {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+  }
+}

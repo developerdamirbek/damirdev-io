@@ -1,0 +1,43 @@
+.user {
+  &__log-out {
+    color: rgb(255 86 48);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__menu {
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    font-size: 16px;
+
+    &-item {
+      align-items: center;
+      display: grid;
+      gap: 15px;
+      grid-template-columns: 24px 1fr;
+    }
+  }
+
+  &__profile {
+    padding-bottom: 15px;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed rgb(145 158 171 / 20%);
+  }
+
+  &__behavior {
+    border-bottom: 1px dashed rgb(145 158 171 / 20%);
+    margin: 12px 0;
+  }
+
+  &__name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__email {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,15 @@
+export const loginDictionary = {
+  enter: 'Войти',
+  login: 'Логин',
+  loginError: 'Неверный логин',
+  maxLoginError: 'Максимум 50 символов',
+  minLoginError: 'Минимум 6 символов',
+  password: 'Пароль',
+  passwordError: 'Неверный пароль',
+  loginTitle: 'Вход',
+  loginDescription: 'Авторизуйтесь для дальнейших действий',
+  rememberMe: 'Запомнить меня',
+  forgotPassword: 'Забыли пароль?',
+  itsAdmin: 'Админ должен авторизоваться по ссылки',
+  linkAdmin: 'EdFix админ-панель',
+}

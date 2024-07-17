@@ -1,0 +1,59 @@
+.playlist {
+  &__header {
+    align-items: start;
+    border-bottom: 1px solid var(--separator);
+    display: flex;
+    justify-content: space-between;
+    padding: 22px;
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  &__content {
+    &-actions {
+      display: flex;
+      gap: 4px;
+      justify-content: space-between;
+      width: 100%;
+
+      &-info {
+        align-items: center;
+        display: flex;
+        gap: 4px;
+      }
+    }
+  }
+
+  &__child-box {
+    background-color: var(--brand-secondary);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  &__child-separator {
+    background-color: var(--text-secondary);
+    border-radius: 50%;
+    display: inline-block;
+    height: 4px;
+    width: 4px;
+  }
+
+  &__child-list {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+
+    &-info {
+      align-items: center;
+      display: flex;
+      gap: 5px;
+    }
+  }
+}

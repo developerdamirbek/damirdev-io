@@ -1,0 +1,18 @@
+export const loginDictionary = {
+  enter: 'Kirish',
+  enterForGoogle: 'Google orqali',
+  login: 'Telefon raqam yoki elektron pochta',
+  loginError: "Noto'g'ri login",
+  maxLoginError: 'Maksimal 50 ta belgi',
+  minLoginError: 'Kamida 6 ta belgi',
+  minPasswordError: 'Kamida 3 ta belgi',
+  password: 'Parol',
+  passwordError: "Noto'g'ri parol",
+  loginTitle: 'Kirish',
+  loginDescription: 'Keyingi harakatlar uchun tizimga kiring',
+  rememberMe: 'Meni eslang',
+  forgotPassword: 'Parolni tiklash',
+  registry: 'Ro‘yxatdan o‘tish',
+  itsAdmin: 'Administrator havola orqali tizimga kirishi kerak',
+  linkAdmin: 'EdFix boshqaruv paneli',
+}

@@ -1,0 +1,13 @@
+.assignment {
+  &__button {
+    width: 220px;
+    background-color: var(--brand-lighter);
+    border-radius: 50px;
+  }
+
+  &__modal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

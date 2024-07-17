@@ -1,0 +1,15 @@
+.accordion {
+  &__border {
+    border: 1px solid var(--brand-lighter);
+  }
+
+  &__actions {
+    display: block;
+    width: 100%;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+  }
+}

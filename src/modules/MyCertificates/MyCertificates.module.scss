@@ -1,0 +1,14 @@
+.my-certificates {
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(15.625rem, 27.321vw + 1.964rem, 34.75rem), 1fr));
+    gap: clamp(0.625rem, 0.658vw + 0.461rem, 1.25rem);
+  }
+}

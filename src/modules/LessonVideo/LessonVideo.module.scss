@@ -1,0 +1,69 @@
+.lesson-video {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+
+    &-back {
+      display: flex;
+      align-items: start;
+      justify-content: start;
+    }
+
+    &-actions {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__save-button {
+    background-color: var(--brand-secondary);
+  }
+
+  &__playlist-button {
+    width: 180px;
+  }
+
+  &__tabs-body {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: clamp(1.25rem, 0.654vw + 1.091rem, 1.875rem);
+  }
+
+  &__tab {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--separator);
+  }
+
+  &__playlist {
+    width: 300px;
+  }
+
+  &__playlist-box {
+    height: clamp(20rem, 44.643vw - 8.571rem, 45rem);
+    width: 325px;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow-y: auto;
+  }
+
+  &__content {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+  }
+
+  &__tabs-panel {
+    padding: 0;
+  }
+
+  &__tabs-icon {
+    flex-shrink: 1;
+  }
+}

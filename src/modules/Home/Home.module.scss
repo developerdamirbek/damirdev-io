@@ -1,0 +1,15 @@
+.home {
+  display: grid;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  &__item {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+  }
+}

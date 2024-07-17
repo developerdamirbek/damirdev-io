@@ -1,0 +1,14 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__certificate {
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

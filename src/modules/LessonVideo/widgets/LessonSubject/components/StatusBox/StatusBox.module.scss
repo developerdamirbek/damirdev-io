@@ -1,0 +1,22 @@
+.status-box {
+  &__pending {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 22px 30px;
+    border-radius: 15px;
+    background-color: var(--yellow-light);
+  }
+
+  &__approved {
+    padding: 22px 30px;
+    border-radius: 15px;
+    background-color: var(--green-light);
+  }
+
+  &__rejected {
+    padding: 22px 30px;
+    border-radius: 15px;
+    background-color: var(--red-light);
+  }
+}

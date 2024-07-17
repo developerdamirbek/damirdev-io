@@ -1,0 +1,40 @@
+.inbox {
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid var(--separator);
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 10px;
+
+  &__file-upload {
+    align-items: center;
+    background-color: var(--brand-secondary);
+    border-radius: 15px;
+    color: var(--brand);
+    cursor: pointer;
+    display: flex;
+    padding: 14px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: var(--brand-secondary-hover);
+    }
+  }
+
+  &__actions {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+  }
+
+  &__timer-wrapper {
+    padding-right: 10px;
+    border-right: 1px solid var(--separator);
+  }
+
+  &__input {
+    padding-left: 20px;
+    width: 100%;
+  }
+}

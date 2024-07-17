@@ -1,0 +1,21 @@
+.pagination {
+  &__desktop {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 100%;
+
+    &-bar {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.detailButton {
+  &__button {
+    background: var(--brand);
+  }
+
+  &__container {
+    display: flex;
+    gap: 10px;
+  }
+}

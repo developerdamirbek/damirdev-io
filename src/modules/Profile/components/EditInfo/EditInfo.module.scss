@@ -1,0 +1,38 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_actions {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      right: -50%;
+      transform: translateX(50%);
+    }
+  }
+
+  &__date_picker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: start;
+    justify-content: space-between;
+
+    &_link {
+      text-decoration: underline;
+    }
+  }
+}

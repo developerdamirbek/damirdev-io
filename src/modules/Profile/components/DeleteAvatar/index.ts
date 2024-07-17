@@ -1,0 +1,1 @@
+export { DeleteAvatar } from './DeleteAvatar'

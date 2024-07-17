@@ -1,0 +1,1 @@
+export { EditPassword } from './EditPassword'
