@@ -1,44 +1,18 @@
-'use client'
+import { useEffect } from 'react'
+import { useMediaQuery } from '@mui/material'
+import { useAppStore } from '@/stores/app'
 
-import { Breakpoint } from '@mui/material'
-import { useTheme } from '@mui/material/styles'
-import useMediaQuery from '@mui/material/useMediaQuery'
+const useResponsive = () => {
+  const isSidebarMini = useAppStore((state) => state.isSidebarMini)
+  const toggleSidebar = useAppStore((state) => state.toggleSidebar)
 
-enum Query {
-  UP = 'up',
-  DOWN = 'down',
-  BETWEEN = 'between',
-  ONLY = 'only',
+  const matches = useMediaQuery('(max-width:1044px)')
+
+  useEffect(() => {
+    if ((matches && !isSidebarMini) || (!matches && isSidebarMini)) {
+      toggleSidebar()
+    }
+  }, [matches, isSidebarMini, toggleSidebar])
 }
 
-type Key = Breakpoint | number
-type Start = Breakpoint | number
-type End = Breakpoint | number
-
-export const useResponsive = (query: Query, key?: Key, start?: Start, end?: End) => {
-  const theme = useTheme()
-
-  const mediaUp = useMediaQuery(theme.breakpoints.up(key as Key))
-
-  const mediaDown = useMediaQuery(theme.breakpoints.down(key as Key))
-
-  const mediaBetween = useMediaQuery(theme.breakpoints.between(start as Start, end as End))
-
-  const mediaOnly = useMediaQuery(theme.breakpoints.only(key as Breakpoint))
-
-  if (query === Query.UP) {
-    return mediaUp
-  }
-
-  if (query === Query.DOWN) {
-    return mediaDown
-  }
-
-  if (query === Query.BETWEEN) {
-    return mediaBetween
-  }
-
-  if (query === Query.ONLY) {
-    return mediaOnly
-  }
-}
+export default useResponsive

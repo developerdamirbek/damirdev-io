@@ -1,0 +1,29 @@
+.menus {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 2px 20px;
+  background-color: var(--white);
+  width: 100%;
+
+  &__item {
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    color: var(--brand);
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(0.75rem, 0.521vw + 0.5rem, 1.125rem);
+    font-weight: 600;
+    line-height: 22px;
+    padding-bottom: 8px;
+    gap: 8px;
+
+    &--active {
+      border-bottom-color: var(--brand);
+    }
+  }
+
+  &__img {
+    color: var(--brand);
+  }
+}

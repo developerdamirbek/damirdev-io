@@ -3,8 +3,8 @@ import { Metadata } from 'next'
 import { Profile } from '@/modules/Profile'
 
 export const metadata: Metadata = {
-  title: 'EdFix | Profile',
-  description: 'EdFix, Profile',
+  title: 'damirdev.io | Profile',
+  description: 'damirdev.io, Profile',
 }
 
 export default function ProfilePage() {

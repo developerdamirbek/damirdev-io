@@ -1,4 +1,4 @@
 export const getMetaData = (title: string) => ({
-  title: `${title} | EdFix`,
-  description: `EdFix, ${title}`,
+  title: `${title} | damirdev.io`,
+  description: `damirdev.io, ${title}`,
 })

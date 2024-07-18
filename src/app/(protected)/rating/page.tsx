@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import { Rating } from '@/modules/Rating'
 
 export const metadata: Metadata = {
-  title: 'EdFix | Rating',
-  description: 'EdFix, Rating',
+  title: 'damirdev.io | Rating',
+  description: 'damirdev.io, Rating',
 }
 
 export default function RatingPage() {

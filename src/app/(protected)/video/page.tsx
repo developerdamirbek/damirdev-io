@@ -3,8 +3,8 @@ import { Metadata } from 'next'
 import { LessonVideo } from '@/modules/LessonVideo'
 
 export const metadata: Metadata = {
-  title: 'EdFix | Video',
-  description: 'EdFix, Video',
+  title: 'damirdev.io | Video',
+  description: 'damirdev.io, Video',
 }
 
 export default function HomePage() {

@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import { MyScore } from '@/modules/MyScore'
 
 export const metadata: Metadata = {
-  title: 'EdFix | My score',
-  description: 'EdFix, My score',
+  title: 'damirdev.io | My score',
+  description: 'damirdev.io, My score',
 }
 
 export default function HomePage() {
