@@ -12,6 +12,7 @@ import { myJobsDictionary } from './my-jobs'
 import { MyScore } from './myScore'
 import { profileDictionary } from './profile'
 import { ratingDictionary } from './rating'
+import { registerDictionary } from './register'
 import { Status } from './status'
 import { Welcome } from './welcome'
 import { leaderStudentList } from './widget'
@@ -40,4 +41,5 @@ export const uzDictionary = {
   ...MyScore,
   ...lessonVideoDictionary,
   ...Status,
+  ...registerDictionary,
 }

@@ -1,0 +1,41 @@
+$gap: 20px;
+
+.form {
+  align-content: center;
+  display: grid;
+  gap: $gap;
+
+  &__submit {
+    display: grid;
+
+    &--has-gap {
+      gap: $gap;
+    }
+  }
+
+  &__offer-text {
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  &__google-recaptcha {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__login {
+    align-items: center;
+    display: flex;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+  }
+
+  &__login-link {
+    font-size: 14px;
+
+    @media only screen and (width <= 600px) {
+      text-align: center;
+    }
+  }
+}

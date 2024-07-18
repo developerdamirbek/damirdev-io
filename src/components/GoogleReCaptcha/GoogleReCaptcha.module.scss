@@ -1,0 +1,12 @@
+.recaptcha {
+  &__error {
+    border: 1px solid #dd4b39;
+    padding: 5px;
+  }
+
+  &__error-message {
+    color: #dd4b39;
+    font-size: 14px;
+    padding: 4px 0;
+  }
+}

@@ -20,5 +20,10 @@
     gap: 20px;
     padding: 38px;
     width: 520px;
+
+    @media only screen and (width <= 600px) {
+      width: auto;
+      padding: 20px;
+    }
   }
 }

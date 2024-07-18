@@ -7,11 +7,13 @@ import { useUserStore } from '@/stores/user'
 
 export async function middleware(request: NextRequest) {
   const userCredentials = getUserCredentials(request)
+
   const redirectLogin = NextResponse.redirect(new URL(ROUTES.login, request.url))
   const redirectHome = NextResponse.redirect(new URL(ROUTES.home, request.url))
-  const isPublicLink = request.url.includes(ROUTES.login) || request.url.includes(ROUTES.forgot)
+  const isPublicLink =
+    request.url.includes(ROUTES.login) || request.url.includes(ROUTES.forgot) || request.url.includes(ROUTES.register)
 
-  if (userCredentials?.accessToken && !isPublicLink) {
+  if (!userCredentials?.accessToken && !isPublicLink) {
     return redirectLogin
   } else if (userCredentials?.accessToken) {
     if (!apiRequest.userCredentials) {

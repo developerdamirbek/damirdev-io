@@ -1,7 +1,7 @@
 export const PUBLIC_ROUTES = {
   login: '/login',
   forgot: '/forgot',
-  registry: '/register',
+  register: '/register',
 }
 
 export const PROTECTED_ROUTES = {
