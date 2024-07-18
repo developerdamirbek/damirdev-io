@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  title: 'EdFix',
-  description: 'EdFix Student App',
-  url: 'https://go.student.uz',
+  title: 'damirdev.io',
+  description: 'damirdev.io Student App',
+  url: 'https://damirdev.io',
 }

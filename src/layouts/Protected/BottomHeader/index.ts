@@ -1,0 +1,1 @@
+export { BottomHeader } from './BottomHeader'

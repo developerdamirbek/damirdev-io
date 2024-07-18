@@ -12,7 +12,7 @@
   --text-brand: #727271;
   --text-secondary: #828282;
 
-  --info: #80D5FF;
+  --info: #80d5ff;
 
   --white: #fff;
   --green: rgb(84 237 156);
@@ -67,19 +67,5 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--brand-secondary);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--brand-lighter);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-light);
+  display: none;
 }

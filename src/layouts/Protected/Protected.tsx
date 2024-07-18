@@ -4,6 +4,7 @@ import { PropsWithChildren } from 'react'
 import { Box } from '@mui/material'
 import classNames from 'classnames/bind'
 import { useAppStore } from '@/stores/app'
+import { BottomHeader } from './BottomHeader/BottomHeader'
 import { Header } from './Header'
 
 import styles from './Protected.module.scss'
@@ -26,10 +27,11 @@ export const Protected = ({ children }: PropsWithChildren) => {
         </Box>
       </Box>
 
-      <Box
-        className={cx('protected__black-bg', { 'protected__black-bg--active': isSidebarMini })}
-        onClick={toggleSidebar}
-      />
+      {isSidebarMini && (
+        <Box component="aside" className={cx('protected__aside')}>
+          <BottomHeader />
+        </Box>
+      )}
     </Box>
   )
 }

@@ -3,8 +3,8 @@ import { Metadata } from 'next'
 import { Notifications } from '@/modules/Notifications'
 
 export const metadata: Metadata = {
-  title: 'EdFix | Notifications',
-  description: 'EdFix, Notifications',
+  title: 'damirdev.io | Notifications',
+  description: 'damirdev.io, Notifications',
 }
 
 export default function NotificationsPage() {

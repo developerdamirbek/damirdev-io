@@ -5,11 +5,8 @@ export const menuDictionary = {
   screening: 'Скрининг',
   comments: 'Комментарии',
 
-  // HR
   'employee-report': 'Отчёт по сотрудникам',
   structure: 'Структура',
-
-  // Director
 }
 
 export const appDictionary = {

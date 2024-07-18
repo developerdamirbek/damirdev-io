@@ -14,5 +14,5 @@ export const loginDictionary = {
   forgotPassword: 'Parolni tiklash',
   registry: 'Ro‘yxatdan o‘tish',
   itsAdmin: 'Administrator havola orqali tizimga kirishi kerak',
-  linkAdmin: 'EdFix boshqaruv paneli',
+  linkAdmin: 'damirdev.io boshqaruv paneli',
 }

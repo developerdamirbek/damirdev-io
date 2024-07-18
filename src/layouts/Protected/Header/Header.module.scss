@@ -2,7 +2,6 @@
   background-color: var(--white);
   align-items: center;
   display: flex;
-  height: 100%;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 clamp(1.25rem, 1.736vw + 0.417rem, 2.5rem);
 }

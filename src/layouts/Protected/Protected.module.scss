@@ -3,7 +3,6 @@
   display: grid;
   height: 100%;
   min-height: 100%;
-  overflow: hidden;
 
   &__content {
     display: flex;
@@ -12,7 +11,7 @@
     grid-template-rows: 86px 1fr;
     height: 100%;
     min-height: 100%;
-    overflow: hidden;
+    padding-bottom: 100px;
   }
 
   &__main {
@@ -25,25 +24,10 @@
     }
   }
 
-  &__black-bg {
-    overflow: hidden;
+  &__aside {
     position: fixed;
-    transition: all 0.2s ease;
-
-    @media (width <= 1024px) {
-      -webkit-tap-highlight-color: transparent;
-      backdrop-filter: blur(3px);
-      background-color: rgb(22 28 36 / 80%);
-      inset: 0;
-      opacity: 0;
-      pointer-events: none;
-
-      &--active {
-        cursor: pointer;
-        opacity: 1;
-        pointer-events: auto;
-        z-index: 98;
-      }
-    }
+    right: 0;
+    left: 0;
+    bottom: 0;
   }
 }

@@ -1,4 +1,4 @@
-import { Button, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import { cookies } from 'next/headers'
 import NextLink from 'next/link'
 import { ROUTES } from '@/constants'
@@ -14,17 +14,19 @@ export default function NotFoundPage() {
   return (
     <LayoutComponent>
       <PublicCenterBlock>
-        <Typography variant="h2" align="center">
-          {mainDictionary.error404}
-        </Typography>
+        <Box display="flex" flexDirection="column" justifyContent="center" sx={{ width: '100%' }}>
+          <Typography variant="h2" align="center">
+            {mainDictionary.error404}
+          </Typography>
 
-        <Typography variant="body2" align="center">
-          {mainDictionary.thisPageNotExist}
-        </Typography>
+          <Typography variant="body2" align="center">
+            {mainDictionary.thisPageNotExist}
+          </Typography>
 
-        <Button component={NextLink} href={ROUTES.home}>
-          {mainDictionary.toHomePage}
-        </Button>
+          <Button component={NextLink} href={ROUTES.home}>
+            {mainDictionary.toHomePage}
+          </Button>
+        </Box>
       </PublicCenterBlock>
     </LayoutComponent>
   )

@@ -12,20 +12,30 @@ const cn = classNames.bind(styles)
 
 export const Actions = () => (
   <Box className={cn('actions')}>
-    <Select defaultValue={languageOptions?.[0]?.value} IconComponent={KeyboardArrowDownIcon}>
-      {languageOptions?.map((item) => (
-        <MenuItem key={item.value} value={item.value}>
-          {item.label}
-        </MenuItem>
-      ))}
-    </Select>
+    <Box>
+      <Select
+        className={cn('actions__language')}
+        defaultValue={languageOptions?.[0]?.value}
+        IconComponent={KeyboardArrowDownIcon}
+      >
+        {languageOptions?.map((item) => (
+          <MenuItem key={item.value} value={item.value}>
+            {item.label}
+          </MenuItem>
+        ))}
+      </Select>
+    </Box>
 
-    <Badge max={99} badgeContent={112} color="error" className="circle">
-      <IconButton href={ROUTES.notifications} size="medium" color="secondary" className={cn('actions__bell')}>
-        <NotificationsActiveIcon sx={{ width: 16, height: 16 }} />
-      </IconButton>
-    </Badge>
+    <Box>
+      <Badge max={99} badgeContent={112} color="error" className="circle">
+        <IconButton href={ROUTES.notifications} size="medium" color="secondary" className={cn('actions__bell')}>
+          <NotificationsActiveIcon sx={{ width: 16, height: 16 }} />
+        </IconButton>
+      </Badge>
+    </Box>
 
-    <User />
+    <Box>
+      <User />
+    </Box>
   </Box>
 )
