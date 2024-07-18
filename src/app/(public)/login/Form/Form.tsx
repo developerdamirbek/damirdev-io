@@ -133,7 +133,7 @@ export const Form = () => {
           {mainDictionary.forgotPassword}
         </Typography>
 
-        <Typography className={cx('form__forgot-password')} component={Link} href={ROUTES.registry}>
+        <Typography className={cx('form__forgot-password')} component={Link} href={ROUTES.register}>
           {mainDictionary.registry}
         </Typography>
       </Box>

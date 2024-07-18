@@ -11,5 +11,5 @@ export const loginDictionary = {
   rememberMe: 'Запомнить меня',
   forgotPassword: 'Забыли пароль?',
   itsAdmin: 'Админ должен авторизоваться по ссылки',
-  linkAdmin: 'EdFix админ-панель',
+  linkAdmin: 'damirdev.io админ-панель',
 }
