@@ -8,11 +8,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import classNames from 'classnames/bind'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import * as z from 'zod'
 import GoogleIcon from '@/assets/icons/google_icon.svg'
 import WarningIcon from '@/assets/icons/warning.svg'
-import { GoogleReCaptcha } from '@/components/GoogleReCaptcha'
 import { ROUTES } from '@/constants'
 import mainDictionary from '@/dictionary'
 import { auth } from '@/firebaseConfig'
@@ -29,7 +29,6 @@ import styles from './Form.module.scss'
 const cx = classNames.bind(styles)
 
 type FormValues = {
-  name: string
   email: string
   password: string
   confirmPassword: string
@@ -37,7 +36,6 @@ type FormValues = {
 
 const formSchema = z
   .object({
-    name: z.string({ required_error: mainDictionary.requiredName }).min(3, mainDictionary.minName),
     email: z.string({ required_error: mainDictionary.requiredEmail }).email(),
     password: z.string({ required_error: mainDictionary.requiredPassword }).min(8, mainDictionary.passwordRequirement),
     confirmPassword: z.string({ required_error: mainDictionary.requiredPassword }).min(8),
@@ -47,9 +45,10 @@ const formSchema = z
     path: ['confirmPassword'],
   })
 
-const RegisterForm = () => {
+export const Form = () => {
   const isMobile = useMediaQuery('(max-width:600px)')
   const [alert, setAlert] = useState<ReactNode>(null)
+  const router = useRouter()
 
   const methods = useForm<FormValues>({
     mode: 'onSubmit',
@@ -63,7 +62,6 @@ const RegisterForm = () => {
   } = methods
 
   const handleError = () => {
-    setError('name', { message: '' })
     setError('email', { message: '' })
     setError('password', { message: '' })
     setError('confirmPassword', { message: '' })
@@ -72,14 +70,14 @@ const RegisterForm = () => {
   const onSubmit = async (formData: FormValues) => {
     try {
       const { email, password } = formData
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
 
-      console.log('User registered:', userCredential.user)
+      await createUserWithEmailAndPassword(auth, email, password)
+
       methods.reset()
       setAlert(<Alert severity="success">Registration successful!</Alert>)
+      router.push(ROUTES.home) // Navigate to home on successful registration
     } catch (error) {
       handleError()
-      console.error('Error registering user:', error)
       setAlert(<Alert severity="error">Failed to register user. Please try again later.</Alert>)
     }
   }
@@ -96,16 +94,6 @@ const RegisterForm = () => {
       onChange={handleFormChange}
       fullWidth
     >
-      <FormControlField label={mainDictionary.name}>
-        <RHFTextField
-          name="name"
-          size={isMobile ? 'small' : 'medium'}
-          isClearableField
-          disabled={isSubmitting}
-          variant="filled"
-        />
-      </FormControlField>
-
       <FormControlField label={mainDictionary.email}>
         <RHFTextField
           name="email"
@@ -132,10 +120,6 @@ const RegisterForm = () => {
           dangerouslySetInnerHTML={{ __html: mainDictionary.warning('https://support.example.com') }}
         />
       </Stack>
-
-      <Box className={cx('form__google-recaptcha')}>
-        <GoogleReCaptcha />
-      </Box>
 
       <Box className={cx('form__submit', { 'form__submit--has-gap': Boolean(alert) })}>
         <Collapse in={Boolean(alert)}>{alert}</Collapse>
@@ -176,5 +160,3 @@ const RegisterForm = () => {
     </FormProvider>
   )
 }
-
-export default RegisterForm
