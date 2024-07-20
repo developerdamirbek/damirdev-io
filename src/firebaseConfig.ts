@@ -1,18 +1,23 @@
-// src/firebaseConfig.ts
-import { FirebaseApp, initializeApp } from 'firebase/app'
-import { Auth, getAuth } from 'firebase/auth'
+import { getApp, getApps, initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  apiKey: 'AIzaSyCDFI6TRGgpNKaliHGu5bgDye-3u7-WCGA',
+  authDomain: 'damirdevio.firebaseapp.com',
+  projectId: 'damirdevio',
+  storageBucket: 'damirdevio.appspot.com',
+  messagingSenderId: '391229671711',
+  appId: '1:391229671711:web:95ae25e53a7ea6ef94882a',
+  measurementId: 'G-V6C3S9SX87',
 }
 
-const app: FirebaseApp = initializeApp(firebaseConfig)
-const auth: Auth = getAuth(app) // Correctly retrieves the Auth instance
+// Initialize Firebase
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig)
+const db = getFirestore()
+const auth = getAuth()
 
-export { app, auth }
+export { app, auth, db }

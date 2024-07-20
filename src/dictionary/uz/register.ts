@@ -26,5 +26,5 @@ export const registerDictionary = {
   passwordRequirement: "Parol 8 tadan 16 tagacha belgili va kamida 1 ta raqamga ega bo'lishi kerak",
   requiredName: 'Ismingizni kiriting',
   requiredPassword: 'Parolingizni kiriting',
-  requiredPhone: 'Telefon raqamingizni kiriting',
+  requiredEmail: 'Elektron pochtangizni kiriting',
 }

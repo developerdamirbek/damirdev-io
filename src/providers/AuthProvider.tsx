@@ -1,15 +1,10 @@
-import React, { PropsWithChildren } from 'react'
-import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
-import { ROUTES } from '@/constants/routes'
+'use client'
+import { SessionProvider as Provider } from 'next-auth/react'
 
-export const AuthProvider = ({ children }: PropsWithChildren<Record<string, unknown>>) => {
-  const cookieStore = cookies()
-  const token = cookieStore.get('refresh')
+type Props = {
+  children: React.ReactNode
+}
 
-  if (!token) {
-    redirect(ROUTES.login)
-  }
-
-  return <>{children}</>
+export default function SessionProvider({ children }: Props) {
+  return <Provider>{children}</Provider>
 }
