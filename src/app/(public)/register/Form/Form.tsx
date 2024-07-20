@@ -8,13 +8,14 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import classNames from 'classnames/bind'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import Link from 'next/link'
+import { signIn } from 'next-auth/react'
 import * as z from 'zod'
 import GoogleIcon from '@/assets/icons/google_icon.svg'
 import WarningIcon from '@/assets/icons/warning.svg'
 import { GoogleReCaptcha } from '@/components/GoogleReCaptcha'
 import { ROUTES } from '@/constants'
 import mainDictionary from '@/dictionary'
-import { auth } from '@/firebaseConfig' // Import the initialized auth
+import { auth } from '@/firebaseConfig'
 import {
   FormControlField,
   FormProvider,
@@ -37,7 +38,7 @@ type FormValues = {
 const formSchema = z
   .object({
     name: z.string({ required_error: mainDictionary.requiredName }).min(3, mainDictionary.minName),
-    email: z.string({ required_error: mainDictionary.requiredEmail }).email(mainDictionary.invalidEmail),
+    email: z.string({ required_error: mainDictionary.requiredEmail }).email(),
     password: z.string({ required_error: mainDictionary.requiredPassword }).min(8, mainDictionary.passwordRequirement),
     confirmPassword: z.string({ required_error: mainDictionary.requiredPassword }).min(8),
   })
@@ -46,7 +47,7 @@ const formSchema = z
     path: ['confirmPassword'],
   })
 
-export const Form = () => {
+const RegisterForm = () => {
   const isMobile = useMediaQuery('(max-width:600px)')
   const [alert, setAlert] = useState<ReactNode>(null)
 
@@ -70,12 +71,10 @@ export const Form = () => {
 
   const onSubmit = async (formData: FormValues) => {
     try {
-      const { name, email, password } = formData
-
+      const { email, password } = formData
       const userCredential = await createUserWithEmailAndPassword(auth, email, password)
 
       console.log('User registered:', userCredential.user)
-
       methods.reset()
       setAlert(<Alert severity="success">Registration successful!</Alert>)
     } catch (error) {
@@ -146,7 +145,13 @@ export const Form = () => {
         </LoadingButton>
       </Box>
 
-      <LoadingButton variant="contained" loading={isSubmitting} color="secondary" size={isMobile ? 'medium' : 'large'}>
+      <LoadingButton
+        variant="contained"
+        onClick={() => signIn('google')}
+        loading={isSubmitting}
+        color="secondary"
+        size={isMobile ? 'medium' : 'large'}
+      >
         <Stack direction="row" gap="10px" alignItems="center">
           <GoogleIcon />
           <Box component="span">{mainDictionary.enterForGoogle}</Box>
@@ -171,3 +176,5 @@ export const Form = () => {
     </FormProvider>
   )
 }
+
+export default RegisterForm

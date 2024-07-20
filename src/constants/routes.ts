@@ -11,7 +11,7 @@ export const PROTECTED_ROUTES = {
   profile: '/profile',
   rating: '/rating',
   settings: '/settings',
-  allCourses: '/all-courses',
+  allCourses: '/courses',
   myCertificates: '/my-certificates',
 }
 
