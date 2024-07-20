@@ -2,7 +2,7 @@ export const MyCertificates = {
   certificateTitle: 'Mening sertifikatlarim',
   certificateCourse: 'Typescript',
   certificate: 'Sertifikat',
-  courseAuthor: 'Daniyer Farxodov',
+  courseAuthor: 'Damirbek Xursanaliyev',
   certificateComplete: 'Ko’rilgan videolar 48%',
   certificateDontBuyCourse: 'Kurs to’liq sotib olinmagan',
   courseName: 'Kurs nomi',

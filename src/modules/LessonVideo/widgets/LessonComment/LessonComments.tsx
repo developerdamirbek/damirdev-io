@@ -26,7 +26,7 @@ export const LessonComment = () => (
         />
       ))}
     </Box>
-    <EditedBox author="Daniyer Farxodov" status="reply" editedText="edited comment" />
+    <EditedBox author="Damirbek Xursanaliyev" status="reply" editedText="edited comment" />
     <Inbox placeholder={mainDictionary.writeComment} />
   </Box>
 )

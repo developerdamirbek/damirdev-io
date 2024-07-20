@@ -1,8 +1,8 @@
 import { UserDataType } from './types'
 
 export const userData: UserDataType = {
-  name: 'Daniyer',
-  surname: 'Farxodov',
+  name: 'Damirbek',
+  surname: 'Xursanaliyev',
   dateOfBirth: {
     day: '01',
     month: '01',
