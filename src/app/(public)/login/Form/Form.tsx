@@ -8,8 +8,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import classNames from 'classnames/bind'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react'
 import * as z from 'zod'
-import { LoginType, signIn } from '@/api/auth'
+import { LoginType } from '@/api/auth'
 import GoogleIcon from '@/assets/icons/google_icon.svg'
 import { PUBLIC_EMAIL, PUBLIC_PASSWORD, ROUTES } from '@/constants'
 import mainDictionary from '@/dictionary'
@@ -27,18 +28,17 @@ import styles from './Form.module.scss'
 const cx = classNames.bind(styles)
 
 type FormValues = {
-  login: string
+  email: string
   password: string
-  saved: boolean
 }
 
 const formSchema = z
   .object({
-    login: z.string().trim().min(5, mainDictionary.minLoginError).max(254, mainDictionary.maxLoginError),
+    email: z.string().trim(),
     password: z.string().trim().min(3, mainDictionary.minPasswordError),
   })
   .required({
-    login: true,
+    email: true,
     password: true,
   })
 
@@ -52,7 +52,7 @@ export const Form = () => {
     mode: 'onSubmit',
     resolver: zodResolver(formSchema),
     defaultValues: {
-      login: PUBLIC_EMAIL || '',
+      email: PUBLIC_EMAIL || '',
       password: PUBLIC_PASSWORD || '',
     },
   })
@@ -63,43 +63,46 @@ export const Form = () => {
   } = methods
 
   const handleError = () => {
-    setError('login', { message: '' })
+    setError('email', { message: '' })
     setError('password', { message: '' })
   }
 
   const handleSubmit = async (formData: FormValues) => {
     try {
-      const response = await signIn({
-        login: `998${formData.login.trim()}`,
-        loginType: LoginType.Phone,
+      const response = await signIn('credentials', {
+        email: formData.email,
         password: formData.password,
+        redirect: false,
       })
 
       if (response?.error) {
         handleError()
-        response?.error.errMsg && setAlert(response?.error.errMsg)
+        setAlert(response.error)
+      } else if (response?.ok) {
+        // Assuming successful login
+        setUser({ email: formData.email }) // Set user details in your store if needed
+        router.push(ROUTES.home) // Redirect after successful login
       }
     } catch (error) {
       handleError()
-      console.error(error)
+      console.error('Login error:', error)
     }
   }
 
   const handleFormChange: FormProviderProps['onChange'] = () => {
-    setAlert(false)
+    setAlert(null)
   }
 
   return (
     <FormProvider
       methods={methods}
       className={cx('form')}
-      onSubmit={handleSubmit}
+      onSubmit={methods.handleSubmit(handleSubmit)}
       onChange={handleFormChange}
-      fullWidth
     >
       <FormControlField label={mainDictionary.login}>
         <RHFEmailOrPhoneInput
-          name="login"
+          name="email"
           size={isMobile ? 'small' : 'medium'}
           isClearableField
           disabled={isSubmitting}
@@ -121,7 +124,13 @@ export const Form = () => {
         </LoadingButton>
       </Box>
 
-      <LoadingButton variant="contained" loading={isSubmitting} color="secondary" size={isMobile ? 'medium' : 'large'}>
+      <LoadingButton
+        variant="contained"
+        loading={isSubmitting}
+        onClick={() => signIn('google')}
+        color="secondary"
+        size={isMobile ? 'medium' : 'large'}
+      >
         <Stack direction="row" gap="10px" alignItems="center">
           <GoogleIcon />
           <Box component="span">{mainDictionary.enterForGoogle}</Box>
