@@ -6,14 +6,15 @@ import LoadingButton from '@mui/lab/LoadingButton'
 import { Alert, Box, Collapse, Stack, Typography, useMediaQuery } from '@mui/material'
 import { zodResolver } from '@hookform/resolvers/zod'
 import classNames from 'classnames/bind'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import * as z from 'zod'
-import { LoginType } from '@/api/auth'
 import GoogleIcon from '@/assets/icons/google_icon.svg'
 import { PUBLIC_EMAIL, PUBLIC_PASSWORD, ROUTES } from '@/constants'
 import mainDictionary from '@/dictionary'
+import { auth } from '@/firebaseConfig'
 import {
   FormControlField,
   FormProvider,
@@ -34,7 +35,7 @@ type FormValues = {
 
 const formSchema = z
   .object({
-    email: z.string().trim(),
+    email: z.string(),
     password: z.string().trim().min(3, mainDictionary.minPasswordError),
   })
   .required({
@@ -69,23 +70,15 @@ export const Form = () => {
 
   const handleSubmit = async (formData: FormValues) => {
     try {
-      const response = await signIn('credentials', {
-        email: formData.email,
-        password: formData.password,
-        redirect: false,
-      })
+      const { email, password } = formData
 
-      if (response?.error) {
-        handleError()
-        setAlert(response.error)
-      } else if (response?.ok) {
-        // Assuming successful login
-        setUser({ email: formData.email }) // Set user details in your store if needed
-        router.push(ROUTES.home) // Redirect after successful login
-      }
+      await signInWithEmailAndPassword(auth, email, password)
+
+      router.push(ROUTES.home)
     } catch (error) {
       handleError()
       console.error('Login error:', error)
+      setAlert(<Alert severity="error">Failed to login. Please try again later.</Alert>)
     }
   }
 
@@ -127,7 +120,7 @@ export const Form = () => {
       <LoadingButton
         variant="contained"
         loading={isSubmitting}
-        onClick={() => signIn('google')}
+        onClick={() => signIn('google', { callbackUrl: ROUTES.home })}
         color="secondary"
         size={isMobile ? 'medium' : 'large'}
       >
