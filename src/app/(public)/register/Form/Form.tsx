@@ -1,12 +1,12 @@
 'use client'
 
-import { ReactNode, useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import LoadingButton from '@mui/lab/LoadingButton'
 import { Alert, Box, Collapse, Stack, Typography, useMediaQuery } from '@mui/material'
 import { zodResolver } from '@hookform/resolvers/zod'
 import classNames from 'classnames/bind'
-import { createUserWithEmailAndPassword } from 'firebase/auth' // Firebase auth functions
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import Link from 'next/link'
 import * as z from 'zod'
 import GoogleIcon from '@/assets/icons/google_icon.svg'
@@ -14,6 +14,7 @@ import WarningIcon from '@/assets/icons/warning.svg'
 import { GoogleReCaptcha } from '@/components/GoogleReCaptcha'
 import { ROUTES } from '@/constants'
 import mainDictionary from '@/dictionary'
+import { auth } from '@/firebaseConfig' // Import the initialized auth
 import {
   FormControlField,
   FormProvider,
@@ -28,7 +29,7 @@ const cx = classNames.bind(styles)
 
 type FormValues = {
   name: string
-  phone: string
+  email: string
   password: string
   confirmPassword: string
 }
@@ -36,9 +37,7 @@ type FormValues = {
 const formSchema = z
   .object({
     name: z.string({ required_error: mainDictionary.requiredName }).min(3, mainDictionary.minName),
-    phone: z
-      .string({ required_error: mainDictionary.requiredPhone })
-      .regex(/^\+998(-)?( )?/, mainDictionary.wrongFormatPhone),
+    email: z.string({ required_error: mainDictionary.requiredEmail }).email(mainDictionary.invalidEmail),
     password: z.string({ required_error: mainDictionary.requiredPassword }).min(8, mainDictionary.passwordRequirement),
     confirmPassword: z.string({ required_error: mainDictionary.requiredPassword }).min(8),
   })
@@ -64,16 +63,18 @@ export const Form = () => {
 
   const handleError = () => {
     setError('name', { message: '' })
-    setError('phone', { message: '' })
+    setError('email', { message: '' })
     setError('password', { message: '' })
     setError('confirmPassword', { message: '' })
   }
 
   const onSubmit = async (formData: FormValues) => {
     try {
-      const { phone, password } = formData
+      const { name, email, password } = formData
 
-      const userCredential = await createUserWithEmailAndPassword(auth, `${phone}@example.com`, password)
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+
+      console.log('User registered:', userCredential.user)
 
       methods.reset()
       setAlert(<Alert severity="success">Registration successful!</Alert>)
@@ -106,9 +107,9 @@ export const Form = () => {
         />
       </FormControlField>
 
-      <FormControlField label={mainDictionary.phoneOrEmail}>
+      <FormControlField label={mainDictionary.email}>
         <RHFTextField
-          name="phone"
+          name="email"
           size={isMobile ? 'small' : 'medium'}
           isClearableField
           disabled={isSubmitting}
